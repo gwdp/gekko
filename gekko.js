@@ -72,5 +72,7 @@ var secret = 'your API secret';
 // implement a trader for an exchange which will act (buy or sell) on the advice
 var Trader = require('./exchanges/' + exchange.toLowerCase() + '.js');
 var trader = new Trader(key, secret);
-consultant.on('advice', trader.trade);
+consultant.on('advice', function (what) {
+  trader.trade(what);
+});
 */
